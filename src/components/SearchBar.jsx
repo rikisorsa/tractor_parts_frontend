@@ -1,38 +1,24 @@
 import React, { useState } from 'react';
 
 const SearchBar = ({ onSearch }) => {
-  const [query, setQuery] = useState('');
+    const [input, setInput] = useState('');
 
-  const handleSearch = () => {
-    onSearch(query);
-  };
+    const handleInputChange = (e) => {
+        const term = e.target.value;
+        setInput(term);
+        onSearch(term); // Pass the search term to the parent
+    };
 
-  return (
-    <div style={{ marginBottom: '20px' }}>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search for a product..."
-        style={{
-          padding: '10px',
-          width: '70%',
-          fontSize: '16px',
-        }}
-      />
-      <button
-        onClick={handleSearch}
-        style={{
-          padding: '10px 20px',
-          marginLeft: '10px',
-          fontSize: '16px',
-          cursor: 'pointer',
-        }}
-      >
-        Search
-      </button>
-    </div>
-  );
+    return (
+        <div>
+            <input
+                type="text"
+                value={input}
+                onChange={handleInputChange}
+                placeholder="Search by name or OEM number"
+            />
+        </div>
+    );
 };
 
 export default SearchBar;
