@@ -13,7 +13,7 @@ const ProductList = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/products'); // Update URL if needed
+                const response = await fetch('http://94.237.32.45:5000/api/products'); // Update URL if needed
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -87,6 +87,7 @@ const ProductList = () => {
                         border: '1px solid #ddd',
                         borderRadius: '5px',
                     }}
+                    
                 />
                 {/* Tractor Dropdown */}
                 <select
@@ -107,6 +108,7 @@ const ProductList = () => {
                         </option>
                     ))}
                 </select>
+                
             </div>
             <table>
                 <thead>
