@@ -6,7 +6,7 @@ const App = () => {
 
   useEffect(() => {
     // Fetch products from your backend API
-    fetch('http://94.237.32.45:5000/api/products')
+    fetch('https://farmeri.fi/api/products')
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error('Error fetching products:', error));
