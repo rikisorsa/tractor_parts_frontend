@@ -16,7 +16,9 @@ const SearchBar = ({ onSearch }) => {
                 value={input}
                 onChange={handleInputChange}
                 placeholder="Search by name or OEM number"
+                
             />
+            <p className="search-bar-text">Search by name or OEM number</p>
         </div>
     );
 };

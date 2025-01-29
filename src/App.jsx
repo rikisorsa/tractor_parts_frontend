@@ -5,8 +5,8 @@ const App = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch products from the backend API using an environment variable
-    const API_URL = import.meta.env.VITE_API_URL || 'https://farmeri.fi/api/products';
+    // Fetch products from the backend API using a relative URL
+    const API_URL = '/api/products';
 
     fetch(API_URL)
       .then((response) => response.json())
