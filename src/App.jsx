@@ -5,8 +5,10 @@ const App = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch products from your backend API
-    fetch('https://farmeri.fi/api/products')
+    // Fetch products from the backend API using an environment variable
+    const API_URL = import.meta.env.VITE_API_URL || 'https://farmeri.fi/api/products';
+
+    fetch(API_URL)
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error('Error fetching products:', error));
