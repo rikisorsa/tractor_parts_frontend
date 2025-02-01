@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import ProductList from './components/ProductList';
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api"; // Ensure correct backend URL
+
 const App = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch products from the backend API using a relative URL
-    const API_URL = '/api/products';
-
-    fetch(API_URL)
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error('Error fetching products:', error));
+    fetch(`${API_URL}/products`)
+      .then(response => response.json())
+      .then(data => setProducts(data))
+      .catch(error => console.error("Error fetching products:", error));
   }, []);
 
   return (
