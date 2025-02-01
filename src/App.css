@@ -1,6 +1,23 @@
 :root {
-  color: #e0e0e0; /* Light gray for text */
-  background-color: #1c1c1c; /* Dark gray for background */
+  --color-grass: #4a7c59;      /* Ruohonvihreä */
+  --color-wheat: #f4d03f;      /* Viljan keltainen */
+  --color-soil: #5d4037;       /* Mullan ruskea */
+  --color-sky: #b3e0ff;        /* Kesätaivaan sininen */
+  --color-hay: #d4b483;        /* Heinäpaalin beige */
+  --color-tractor: #c62828;    /* Traktorin punainen */
+}
+
+body {
+  background: linear-gradient(135deg, rgba(179, 224, 255, 0.3) 0%, #ffffff 100%);
+  min-height: 100vh;
+}
+
+h1 {
+  color: var(--color-soil);
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 a {
@@ -26,4 +43,263 @@ button:hover {
   a:hover {
     color: #d8a928; /* Maintain yellow hover for consistency */
   }
+}
+
+/* Lisätään uudet tyylit */
+.search-container {
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border: 2px solid var(--color-grass);
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--color-soil);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--color-wheat);
+  box-shadow: 0 4px 12px rgba(244, 208, 63, 0.2);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+  border: 1px solid var(--color-hay);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card h2 {
+  color: var(--color-soil);
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.product-card p {
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.price-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.store-link {
+  padding: 0.8rem 1.2rem;
+  background-color: #2196f3;
+  background-image: linear-gradient(to right, #2196f3, #1976d2);
+  border-radius: 8px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);
+}
+
+.store-link:hover {
+  background-image: linear-gradient(to right, #1e88e5, #1565c0);
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.4);
+}
+
+.store-link span:last-child {
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.store-link-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: flex-start;
+}
+
+.savings-container {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.savings-badge {
+  font-size: 0.8rem;
+  background-color: var(--color-wheat);
+  color: var(--color-soil);
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.savings-badge i {
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+    padding: 0 1rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .store-link {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Lisätään koristeellinen header */
+.page-header {
+  background: linear-gradient(135deg, var(--color-hay) 0%, #ffffff 100%),
+              url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h20v20H0z" fill="none"/><path d="M2 2h2v2H2zM6 6h2v2H6zM10 10h2v2h-2zM14 14h2v2h-2z" fill="rgba(255,255,255,0.1)"/></svg>');
+  padding: 2rem 0;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.page-header h1 {
+  color: var(--color-soil);
+  margin: 0;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0.95;
+}
+
+/* Animaatiot */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.product-card {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, 
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0)
+  );
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 80%;
+}
+
+.oem-container {
+  margin-bottom: 1rem;
+}
+
+.oem-trigger {
+  display: inline-block;
+  position: relative;
+  background-color: rgba(74, 124, 89, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--color-soil);
+  cursor: pointer;
+  user-select: none;
+}
+
+.oem-numbers {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-top: 0.5rem;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 150px;
+  cursor: default;
+}
+
+.oem-number {
+  padding: 0.2rem 0.4rem;
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  background-color: rgba(74, 124, 89, 0.05);
+  border-radius: 3px;
+  cursor: copy;
+  user-select: all;
+  transition: background-color 0.2s ease;
+}
+
+.oem-number:hover {
+  background-color: rgba(74, 124, 89, 0.1);
+}
+
+/* Muutettu hover -> active */
+.oem-trigger.active .oem-numbers {
+  display: flex;
+}
+
+/* Lisätään aktiivisen tilan korostus */
+.oem-trigger.active {
+  background-color: rgba(74, 124, 89, 0.2);
+}
+
+/* Lisätään nuoli osoittamaan hover-laatikkoa */
+.oem-numbers::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 10px;
+  width: 8px;
+  height: 8px;
+  background: white;
+  transform: rotate(45deg);
+  box-shadow: -2px -2px 2px rgba(0, 0, 0, 0.03);
 }
